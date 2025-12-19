@@ -7,7 +7,7 @@ A comprehensive and flexible web application designed for managing resource and 
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Filament](https://img.shields.io/badge/Filament-3.0-F28D15?style=for-the-badge&logo=filament&logoColor=white)
 
-## 🚀 Features
+## Features
 
 ### Front-End (User Application)
 -   **Resource Discovery**: Browse a list of available spaces, rooms, or resources with detailed descriptions and images.
@@ -20,9 +20,6 @@ A comprehensive and flexible web application designed for managing resource and 
 -   **Invoicing**: Auto-generated PDF invoices for bookings (`laravel-dompdf`), available for view and download.
 -   **Responsive Design**: Fully responsive UI built with Tailwind CSS, supporting Dark Mode.
 -   **Contact & Static Pages**: Integrated contact form and dynamic content pages managed via the admin panel.
--   **Dyanmic Custom Color Scheme
--   **Custom Login/Register Type Allowed - Register/Login Only with Phone | Register/Login Only with Email | Register with Full Details and Login with email and password
--   **Dual Color Modes Dark and Light Mode
 
 ### Back-End (Admin Panel)
 -   **Powered by Filament**: A robust and user-friendly admin interface.
@@ -33,7 +30,7 @@ A comprehensive and flexible web application designed for managing resource and 
 -   **Content Management**: Manage dynamic pages and site settings.
 -   **Financials**: Track payments and generate reports/invoices.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 -   **Backend**: Laravel 12.0
 -   **Frontend**: Livewire 3.6, Blade Templates
@@ -43,14 +40,14 @@ A comprehensive and flexible web application designed for managing resource and 
 -   **Database**: MySQL / SQLite (configurable)
 -   **PDF Generation**: barryvdh/laravel-dompdf
 
-## 📋 Requirements
+## Requirements
 
 -   PHP >= 8.2
 -   Composer
 -   Node.js & NPM
 -   MySQL (or SQLite)
 
-## 📦 Installation
+## Installation
 
 Follow these steps to set up the project locally:
 
@@ -112,7 +109,7 @@ Follow these steps to set up the project locally:
 
     The application will be accessible at `http://127.0.0.1:8000`.
 
-## 📖 Usage
+## Usage
 
 ### User Portal
 Visit the home page at `http://127.0.0.1:8000` to browse available resources. 
@@ -125,7 +122,7 @@ Access the admin panel at `http://127.0.0.1:8000/admin`.
     -   Email: `admin@example.com` (Check `DatabaseSeeder.php` for exact credentials if different)
     -   Password: `password`
 
-## 📂 Project Structure
+## Project Structure
 
 -   `app/Livewire`: Contains the frontend logic components (Booking flow, Listings, Auth).
 -   `app/Filament`: Contains the Admin Panel resources and configuration.
@@ -133,7 +130,7 @@ Access the admin panel at `http://127.0.0.1:8000/admin`.
 -   `resources/views`: Blade templates.
 -   `routes/web.php`: Web routes definition.
 
-## 🤝 Contributing
+## Contributing
 
 1.  Fork the repository.
 2.  Create a new feature branch (`git checkout -b feature/amazing-feature`).
@@ -141,6 +138,6 @@ Access the admin panel at `http://127.0.0.1:8000/admin`.
 4.  Push to the branch (`git push origin feature/amazing-feature`).
 5.  Open a Pull Request.
 
-## 📄 License
+## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). This project follows the same license.
