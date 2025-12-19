@@ -84,7 +84,7 @@
                                     <!-- Pricing -->
                                     <div class="flex items-center justify-between mb-4">
                                         <div>
-                                            <span class="text-3xl font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">₹{{ number_format($studio->hourly_rate) }}</span>
+                                            <span class="text-3xl font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($studio->hourly_rate) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                                             <span class="text-gray-500 dark:text-gray-400 text-sm">/hour</span>
                                         </div>
                                         <div class="text-right">

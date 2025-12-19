@@ -345,7 +345,8 @@ class BookingResource extends Resource
                                     ->reactive(),
                                 Forms\Components\TextInput::make('price')
                                     ->numeric()
-                                    ->prefix('₹')
+                                    ->prefix(\App\Models\Setting::get('currency_symbol', '₹'))
+                                    ->suffix(\App\Models\Setting::get('currency_code', 'INR'))
                                     ->required()
                                     ->reactive(),
                             ])
@@ -495,7 +496,7 @@ class BookingResource extends Resource
                                 }
                                 
                                 $amount = ($hourlyRate * ($slotDuration / 60)) * $baseSlots;
-                                return '₹' . number_format($amount, 2);
+                                return \App\Models\Setting::get('currency_symbol', '₹') . number_format($amount, 2) . ' ' . \App\Models\Setting::get('currency_code', 'INR');
                             }),
                         Forms\Components\Placeholder::make('addon_amount_display')
                             ->label('Add-ons Amount')
@@ -507,7 +508,7 @@ class BookingResource extends Resource
                                         $total += ($item['price'] ?? 0) * ($item['quantity'] ?? 1);
                                     }
                                 }
-                                return '₹' . number_format($total, 2);
+                                return \App\Models\Setting::get('currency_symbol', '₹') . number_format($total, 2) . ' ' . \App\Models\Setting::get('currency_code', 'INR');
                             }),
                         Forms\Components\Placeholder::make('total_amount_display')
                             ->label('Total Amount')
@@ -559,7 +560,7 @@ class BookingResource extends Resource
                                     }
                                 }
                                 
-                                return '₹' . number_format($baseAmount + $addonAmount, 2);
+                                return \App\Models\Setting::get('currency_symbol', '₹') . number_format($baseAmount + $addonAmount, 2) . ' ' . \App\Models\Setting::get('currency_code', 'INR');
                             }),
                         Forms\Components\Hidden::make('base_amount')
                             ->default(0),
@@ -632,7 +633,8 @@ class BookingResource extends Resource
                     ->formatStateUsing(fn ($state) => abs($state))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('total_amount')
-                    ->money('INR')
+                    ->money(\App\Models\Setting::get('currency_code', 'INR'))
+                    ->suffix(' ' . \App\Models\Setting::get('currency_code', 'INR'))
                     ->sortable(),
                 Tables\Columns\BadgeColumn::make('payment_status')
                     ->colors([

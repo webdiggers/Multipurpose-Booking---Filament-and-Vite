@@ -1,4 +1,4 @@
-# Multipurpose Booking System - Booking Manager
+# Multi Purpose Booking System
 
 A comprehensive and flexible web application designed for managing resource and facility bookings. This system allows users to browse available spaces or resources, book time slots, manage their appointments, and access invoices. It features a powerful admin panel built with Filament for managing the entire platform.
 

@@ -34,7 +34,8 @@ class AddonResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('₹')
+                    ->prefix(\App\Models\Setting::get('currency_symbol', '₹'))
+                    ->suffix(\App\Models\Setting::get('currency_code', 'INR'))
                     ->step(10),
                 Forms\Components\Select::make('type')
                     ->options([
@@ -59,7 +60,8 @@ class AddonResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money('INR')
+                    ->money(\App\Models\Setting::get('currency_code', 'INR'))
+                    ->suffix(' ' . \App\Models\Setting::get('currency_code', 'INR'))
                     ->sortable(),
                 Tables\Columns\BadgeColumn::make('type')
                     ->colors([

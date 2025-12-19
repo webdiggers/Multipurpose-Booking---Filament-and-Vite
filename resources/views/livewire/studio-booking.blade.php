@@ -148,7 +148,7 @@
                                                 <div class="ml-3 flex-1">
                                                     <label class="font-medium text-gray-900 dark:text-white">{{ $addon->name }}</label>
                                                     <p class="text-sm text-gray-600 dark:text-gray-400">{{ $addon->description }}</p>
-                                                    <p class="text-lg font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent mt-1">₹{{ number_format($addon->price) }}</p>
+                                                    <p class="text-lg font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent mt-1">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($addon->price) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</p>
                                                 </div>
                                             </div>
                                             
@@ -229,7 +229,7 @@
                             <div class="border-t border-gray-300 dark:border-gray-600 mt-4 pt-4">
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-600 dark:text-gray-400">Base Amount:</span>
-                                    <span class="font-medium text-gray-900 dark:text-white">₹{{ number_format($baseAmount) }}</span>
+                                    <span class="font-medium text-gray-900 dark:text-white">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($baseAmount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                                 </div>
                                 
                                 @if(count($selectedAddons) > 0)
@@ -237,19 +237,19 @@
                                     @foreach($selectedAddons as $addon)
                                         <div class="flex justify-between text-sm ml-4 mb-1">
                                             <span class="text-gray-600 dark:text-gray-400">{{ $addon['name'] }} (×{{ $addon['quantity'] }})</span>
-                                            <span class="text-gray-900 dark:text-white">₹{{ number_format($addon['price'] * $addon['quantity']) }}</span>
+                                            <span class="text-gray-900 dark:text-white">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($addon['price'] * $addon['quantity']) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                                         </div>
                                     @endforeach
                                     <div class="flex justify-between">
                                         <span class="text-gray-600 dark:text-gray-400">Add-ons Total:</span>
-                                        <span class="font-medium text-gray-900 dark:text-white">₹{{ number_format($addonAmount) }}</span>
+                                        <span class="font-medium text-gray-900 dark:text-white">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($addonAmount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                                     </div>
                                 @endif
 
                                 <div class="border-t border-gray-300 dark:border-gray-600 mt-3 pt-3">
                                     <div class="flex justify-between text-lg">
                                         <span class="font-bold text-gray-900 dark:text-white">Total Amount:</span>
-                                        <span class="font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">₹{{ number_format($totalAmount) }}</span>
+                                        <span class="font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($totalAmount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                                     </div>
                                 </div>
                             </div>

@@ -39,7 +39,8 @@ class StudioResource extends Resource
                 Forms\Components\TextInput::make('hourly_rate')
                     ->required()
                     ->numeric()
-                    ->prefix('₹')
+                    ->prefix(\App\Models\Setting::get('currency_symbol', '₹'))
+                    ->suffix(\App\Models\Setting::get('currency_code', 'INR'))
                     ->step(50),
                 Forms\Components\TextInput::make('capacity')
                     ->required()
@@ -200,7 +201,8 @@ class StudioResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('hourly_rate')
-                    ->money('INR')
+                    ->money(\App\Models\Setting::get('currency_code', 'INR'))
+                    ->suffix(' ' . \App\Models\Setting::get('currency_code', 'INR'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('capacity')
                     ->numeric()

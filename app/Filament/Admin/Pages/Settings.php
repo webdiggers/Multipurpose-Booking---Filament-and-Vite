@@ -77,6 +77,8 @@ class Settings extends Page
             'light_primary_color' => Setting::get('light_primary_color', '#e9ab00'),
             'dark_primary_color' => Setting::get('dark_primary_color', '#e9ab00'),
             'about_us_content' => Setting::get('about_us_content', ''),
+            'currency_symbol' => Setting::get('currency_symbol', '₹'),
+            'currency_code' => Setting::get('currency_code', 'INR'),
         ]);
     }
 
@@ -109,6 +111,22 @@ class Settings extends Page
                                             ->tel()
                                             ->required()
                                             ->maxLength(255),
+                                    ])->columns(2),
+
+                                Forms\Components\Section::make('Currency Settings')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('currency_symbol')
+                                            ->label('Currency Symbol')
+                                            ->placeholder('₹, $, €, etc.')
+                                            ->required()
+                                            ->maxLength(5)
+                                            ->default('₹'),
+                                        Forms\Components\TextInput::make('currency_code')
+                                            ->label('Currency Code')
+                                            ->placeholder('INR, USD, EUR, etc.')
+                                            ->required()
+                                            ->maxLength(5)
+                                            ->default('INR'),
                                     ])->columns(2),
 
                                 Forms\Components\Section::make('Social Media Links')
@@ -375,6 +393,9 @@ class Settings extends Page
         Setting::set('light_primary_color', $data['light_primary_color'] ?? '#e9ab00', 'text');
         Setting::set('dark_primary_color', $data['dark_primary_color'] ?? '#e9ab00', 'text');
         Setting::set('about_us_content', $data['about_us_content'] ?? '', 'text');
+        
+        Setting::set('currency_symbol', $data['currency_symbol'] ?? '₹', 'text');
+        Setting::set('currency_code', $data['currency_code'] ?? 'INR', 'text');
 
         Notification::make()
             ->title('Settings saved successfully')
