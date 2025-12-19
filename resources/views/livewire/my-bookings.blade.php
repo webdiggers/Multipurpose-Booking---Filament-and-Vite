@@ -152,11 +152,11 @@
                                     <div class="md:ml-6 mt-4 md:mt-0">
                                         <div class="bg-primary-50 dark:bg-primary-900/30 rounded-lg p-4 mb-4 min-w-[200px] border border-primary-200 dark:border-[#6d421e]">
                                             <p class="text-sm text-primary-900 dark:text-primary-300 mb-2">Total Amount</p>
-                                            <p class="text-3xl font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">₹{{ number_format($booking->total_amount) }}</p>
+                                            <p class="text-3xl font-bold bg-gradient-to-br from-primary-300 via-primary-500 to-primary-600 bg-clip-text text-transparent">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($booking->total_amount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</p>
                                             <div class="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                                                <p>Base: ₹{{ number_format($booking->base_amount) }}</p>
+                                                <p>Base: {{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($booking->base_amount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</p>
                                                 @if($booking->addon_amount > 0)
-                                                    <p>Add-ons: ₹{{ number_format($booking->addon_amount) }}</p>
+                                                    <p>Add-ons: {{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($booking->addon_amount) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</p>
                                                 @endif
                                             </div>
                                         </div>

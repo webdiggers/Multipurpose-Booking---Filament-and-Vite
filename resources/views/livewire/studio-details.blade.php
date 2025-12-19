@@ -16,7 +16,7 @@
             </a>
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">{{ $studio->name }}</h1>
             <div class="flex items-center text-white/90">
-                <span class="text-2xl font-semibold text-primary-500">₹{{ number_format($studio->hourly_rate) }}</span>
+                <span class="text-2xl font-semibold text-primary-500">{{ App\Models\Setting::get('currency_symbol', '₹') }}{{ number_format($studio->hourly_rate) }} {{ App\Models\Setting::get('currency_code', 'INR') }}</span>
                 <span class="text-sm ml-1 opacity-80">/ hour</span>
             </div>
         </div>

@@ -34,7 +34,7 @@ class StatsOverview extends BaseWidget
                     ],
                 ])),
 
-            Stat::make('Total Revenue', '$' . number_format(Booking::where('payment_status', 'paid')->sum('total_amount'), 2))
+            Stat::make('Total Revenue', \App\Models\Setting::get('currency_symbol', '₹') . number_format(Booking::where('payment_status', 'paid')->sum('total_amount'), 2) . ' ' . \App\Models\Setting::get('currency_code', 'INR'))
                 ->description('Total earnings from confirmed bookings')
                 ->descriptionIcon('heroicon-m-currency-dollar')
                 ->color('success')
