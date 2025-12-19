@@ -20,6 +20,9 @@ A comprehensive and flexible web application designed for managing resource and 
 -   **Invoicing**: Auto-generated PDF invoices for bookings (`laravel-dompdf`), available for view and download.
 -   **Responsive Design**: Fully responsive UI built with Tailwind CSS, supporting Dark Mode.
 -   **Contact & Static Pages**: Integrated contact form and dynamic content pages managed via the admin panel.
+-   **Dyanmic Custom Color Scheme
+-   **Custom Login/Register Type Allowed - Register/Login Only with Phone | Register/Login Only with Email | Register with Full Details and Login with email and password
+-   **Dual Color Modes Dark and Light Mode
 
 ### Back-End (Admin Panel)
 -   **Powered by Filament**: A robust and user-friendly admin interface.
